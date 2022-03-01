@@ -1,0 +1,4 @@
+#aws_ec2/meta/main.yml
+collections:
+  - amazon.aws
+

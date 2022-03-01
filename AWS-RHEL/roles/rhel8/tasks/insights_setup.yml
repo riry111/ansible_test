@@ -1,0 +1,8 @@
+---
+- name: Insightsの登録状況の確認
+  ansible.builtin.stat: path=/etc/insights-client/.registered
+  register: unreg
+
+- name: Insights登録
+  ansible.builtin.shell: insights-client --register
+  when: unreg.stat.exists == false

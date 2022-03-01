@@ -1,0 +1,29 @@
+---
+### Control RHSM subscribe
+rhsm_register : False
+prov_insights : False
+prov_nginx : True
+prov_firewalld: True
+
+### for rhsm_regist.yml ###
+rht_user: mamurai@redhat.com
+rht_pass: 8!4mur@I
+pool_ids: 8a85f98159d214030159d32e0a6766f8
+
+### for rhsm_enable-repos.yml ###
+enable_repos:
+  - rhel-7-server-rpms
+  - rhel-server-rhscl-7-rpms
+
+enable_repos_rhel8:
+  - rhel-8-for-x86_64-baseos-rpms
+  - rhel-8-for-x86_64-appstream-rpms
+
+### for nginx ###
+nginx_pkg_name: nginx16
+nginx_config: /opt/rh/{{ nginx_pkg_name }}/root/etc/nginx/nginx.conf
+nginx_port: 81
+
+nginx_pkg_name_rhel8: nginx
+nginx_config_rhel8: /etc/nginx/nginx.conf
+nginx_port_rhel8: 80

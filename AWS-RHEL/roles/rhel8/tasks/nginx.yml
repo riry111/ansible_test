@@ -1,0 +1,19 @@
+---
+- name: Install packages
+  ansible.builtin.yum: 
+    name: "{{ nginx_pkg_name_rhel8 }}"
+    state: present
+
+- name: Modify nginx Listen Port
+  ansible.builtin.replace:
+    dest: "{{ nginx_config_rhel8 }}"
+    regexp: '(^\s+listen\s+)80\s+default_server;$'
+    replace: '\1 {{ nginx_port_rhel8 }} default_server;'
+    backup: yes
+
+- name: Enable nginx
+  ansible.builtin.service: 
+    name: "{{ nginx_pkg_name_rhel8 }}"
+    state: restarted
+    enabled: yes 
+

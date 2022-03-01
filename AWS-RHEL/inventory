@@ -1,0 +1,13 @@
+[kvm_host]
+MACBOOK ansible_host=192.168.124.1
+
+[aws_ec2]
+ansible ansible_host=192.168.124.200
+
+[rhel7]
+rhel7x ansible_host=192.168.124.201
+rhel7y ansible_host=192.168.124.202
+rhel7z ansible_host=192.168.124.203
+
+[localhost]
+ansible ansible_host=192.168.124.200

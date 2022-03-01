@@ -1,0 +1,19 @@
+---
+- name: Install packages
+  ansible.builtin.yum: 
+    name: firewalld
+    state: present
+
+- name: Enable nginx
+  ansible.builtin.service: 
+    name: firewalld.service
+    state: started
+    enabled: yes 
+
+- name: Open nginx port
+  ansible.posix.firewalld:
+    zone: public
+    port: "{{ nginx_port_rhel8 }}/tcp"
+    permanent: true
+    state: enabled
+    immediate: true

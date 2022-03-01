@@ -1,0 +1,15 @@
+---
+- hosts: all
+  gather_facts: false
+
+  collections:
+    - ansible.tower
+
+  tasks:
+  - name: Launch a job
+    tower_job_launch:
+      job_template: "Demo Job Template"
+      tower_host: 192.168.23.2
+      tower_username: admin
+      tower_password: password
+      validate_certs: false
