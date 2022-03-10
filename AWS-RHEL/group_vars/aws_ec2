@@ -1,4 +1,5 @@
 keypair:  aws_key
+# instance_type: t2.micro
 instance_type: t2.small
 security_group_id: sg-a612b0df
 subnet_id: subnet-fffd5d89
